@@ -1,7 +1,7 @@
 name: Publish
 
 on:
-    workflow_dispatch: {}
+    workflow_dispatch: { }
     push:
     branches:
         - main
@@ -16,25 +16,25 @@ jobs:
 
     steps:
         - uses: actions/checkout@v3
-        with:
-            fetch-depth: 0
+          with:
+              fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-        with:
-            version: 8
-      - uses: actions/setup-node@v3
-        with:
-            node-version: 16
-            cache: pnpm
+        - uses: pnpm/action-setup@v2
+          with:
+              version: 8
+        - uses: actions/setup-node@v3
+          with:
+              node-version: 16
+              cache: pnpm
 
-      - run: pnpm install
+        - run: pnpm install
 
-      - name: Build
-        run: pnpm run generate
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
-        with:
-            path: .output/public
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v1
+        - name: Build
+          run: pnpm run generate
+        - uses: actions/configure-pages@v2
+        - uses: actions/upload-pages-artifact@v1
+          with:
+              path: .output/public
+        - name: Deploy
+          id: deployment
+          uses: actions/deploy-pages@v1
