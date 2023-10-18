@@ -1,13 +1,13 @@
 name: Publish
 
 on:
-    workflow_dispatch: { }
-    push:
+  workflow_dispatch: { }
+  push:
     branches:
         - main
 
 jobs:
-    publish:
+  publish:
     runs-on: ubuntu-latest
 
     permissions:
